@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pizza Order Form</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 40px;
+        }
+
+        .form-box {
+            border: 1px solid #aaa;
+            padding: 20px;
+            width: 350px;
+            border-radius: 8px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Pizza Order Form</h2>
+
+    <div class="form-box">
+        <form>
+
+            <label>Name:</label><br>
+            <input type="text" placeholder="Your name"><br><br>
+
+            <label>Pizza Size:</label><br>
+            <select>
+                <option>Small</option>
+                <option>Medium</option>
+                <option>Large</option>
+            </select><br><br>
+
+            <label>Crust:</label><br>
+            <select>
+                <option>Thin Crust</option>
+                <option>Regular</option>
+                <option>Cheese Burst</option>
+            </select><br><br>
+
+            <label>Toppings:</label><br>
+            <input type="checkbox"> Cheese<br>
+            <input type="checkbox"> Olives<br>
+            <input type="checkbox"> Mushrooms<br>
+            <input type="checkbox"> Jalapeno<br><br>
+
+            <label>Address:</label><br>
+            <textarea rows="3" cols="30"></textarea><br><br>
+
+            <button type="submit">Place Order</button>
+
+        </form>
+    </div>
+
+</body>
+</html>
