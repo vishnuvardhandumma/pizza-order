@@ -20,6 +20,56 @@
             font-weight: bold;
         }
     </style>
+   <script>
+    function sendorder(event){
+        event.preventDefault(); // stop form from refreshing page
+
+        let name = document.getElementById("name").value.trim();
+        let size = document.getElementById("size").value;
+        let crust = document.getElementById("crust").value;
+        let address = document.getElementById("address").value.trim();
+
+        // Check at least one topping
+        let toppings = document.getElementsByClassName("topping");
+        let toppingSelected = false;
+        for(let t of toppings){
+            if(t.checked){
+                toppingSelected = true;
+                break;
+            }
+        }
+
+        // Validations
+        if(name === ""){
+            alert("Name cannot be empty!");
+            return;
+        }
+
+        if(size === ""){
+            alert("Please select pizza size!");
+            return;
+        }
+
+        if(crust === ""){
+            alert("Please select crust type!");
+            return;
+        }
+
+        if(!toppingSelected){
+            alert("Please select at least one topping!");
+            return;
+        }
+
+        if(address === ""){
+            alert("Address cannot be empty!");
+            return;
+        }
+
+        // Success
+        alert("Order placed successfully!");
+    }
+</script>
+
 </head>
 
 <body>
@@ -27,33 +77,32 @@
     <h2>Pizza Order Form</h2>
 
     <div class="form-box">
-        <form>
+        <form onsubmit="sendorder(event)">
 
             <label>Name:</label><br>
-            <input type="text" placeholder="Your name"><br><br>
+<input type="text" id="name" placeholder="Your name">
 
             <label>Pizza Size:</label><br>
-            <select>
+<select id="size">
                 <option>Small</option>
                 <option>Medium</option>
                 <option>Large</option>
             </select><br><br>
 
             <label>Crust:</label><br>
-            <select>
+<select id="crust">
                 <option>Thin Crust</option>
                 <option>Regular</option>
                 <option>Cheese Burst</option>
             </select><br><br>
 
-            <label>Toppings:</label><br>
-            <input type="checkbox"> Cheese<br>
-            <input type="checkbox"> Olives<br>
-            <input type="checkbox"> Mushrooms<br>
-            <input type="checkbox"> Jalapeno<br><br>
+           <input type="checkbox" class="topping"> Cheese<br>
+<input type="checkbox" class="topping"> Olives<br>
+<input type="checkbox" class="topping"> Mushrooms<br>
+<input type="checkbox" class="topping"> Jalapeno<br><br>
 
             <label>Address:</label><br>
-            <textarea rows="3" cols="30"></textarea><br><br>
+<textarea id="address" rows="3" cols="30"></textarea>
 
             <button type="submit">Place Order</button>
 
